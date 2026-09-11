@@ -28,16 +28,18 @@ export const brand = {
 };
 
 export const contact = {
-  // Número comercial publicado de Travel Jet S.A.S. (Bucaramanga).
-  phoneDisplay: '+57 321 755 1963',
-  phoneE164: '573217551963',
-  whatsappE164: '573217551963',
+  // Datos publicados por la propia agencia.
+  phoneDisplay: '+57 323 408 0837',
+  phoneE164: '573234080837',
+  whatsappE164: '573234080837',
+  email: 'Traveljetsas@gmail.com',
+  // Domicilio registrado de Travel Jet S.A.S. en Bucaramanga.
   addressLine: 'Calle 34 # 10-49, Piso 2, Edificio Rovir',
   addressCity: 'Bucaramanga, Santander, Colombia',
   // Pendiente de suministro por Travel_Jet. No se inventa.
-  email: null,
   hours: null,
   social: [
+    { label: 'Instagram', url: 'https://www.instagram.com/agenciatraveljets/' },
     { label: 'Facebook', url: 'https://www.facebook.com/traveljetsas/' }
   ]
 };
