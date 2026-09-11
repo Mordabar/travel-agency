@@ -21,7 +21,7 @@ export function build({ env, quality, section }) {
     height: 7.2,
     depth: 30,
     floor: 0x1a1d22,
-    wall: 0x181b21,
+    wall: 0x30343b,
     accent: 0xdfe6ef,
     doorW: 4.2,
     doorH: 3.8,
@@ -33,9 +33,9 @@ export function build({ env, quality, section }) {
     map: marbleTex, roughness: 0.22, metalness: 0.25, envMap: env, envMapIntensity: 0.9
   });
   [-1, 1].forEach((side) => {
-    const panel = new THREE.Mesh(new THREE.PlaneGeometry(28, 7), marbleMat);
+    const panel = new THREE.Mesh(new THREE.PlaneGeometry(30, 7.2), marbleMat);
     panel.rotation.y = (-side * Math.PI) / 2;
-    panel.position.set(side * 8.9, 3.5, section.z);
+    panel.position.set(side * 8.94, 3.6, section.z);
     g.add(panel);
   });
   const floorMarble = new THREE.Mesh(
@@ -49,7 +49,7 @@ export function build({ env, quality, section }) {
   g.add(floorMarble);
 
   const ceil = new THREE.Mesh(
-    new THREE.PlaneGeometry(17.8, 29.8),
+    new THREE.PlaneGeometry(18.1, 30.1),
     new THREE.MeshStandardMaterial({ map: marbleTex, roughness: 0.5, metalness: 0.1, envMap: env })
   );
   ceil.rotation.x = Math.PI / 2;
@@ -109,7 +109,7 @@ export function build({ env, quality, section }) {
     new THREE.PlaneGeometry(4, 4 / (title.userData?.aspect || 9)),
     new THREE.MeshBasicMaterial({ map: title, transparent: true, toneMapped: false, depthWrite: false })
   );
-  tm.position.set(0, 6.4, section.z - 12);
+  tm.position.set(0, 6.5, section.z - 12.9);
   g.add(tm);
 
   // Luz suave y frontal: nada dramático en la sala de confianza.

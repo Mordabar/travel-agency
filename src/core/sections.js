@@ -65,7 +65,7 @@ export const SECTIONS = [
     z: -410,
     room: 'memories',
     cam: { pos: [0, 1.7, -400], target: [0, 1.7, -420] },
-    palette: { fog: 0x0d0f1c, ambient: 0x3b3550, key: 0xffcf9e, keyI: 1.35, fogNear: 14, fogFar: 80 }
+    palette: { fog: 0x11131f, ambient: 0x4c4562, key: 0xffcf9e, keyI: 1.7, fogNear: 14, fogFar: 80 }
   },
   {
     id: 'opiniones',
@@ -75,7 +75,7 @@ export const SECTIONS = [
     z: -480,
     room: 'opinions',
     cam: { pos: [0, 1.7, -470], target: [0, 1.75, -490] },
-    palette: { fog: 0x0c1424, ambient: 0x3a4a66, key: 0xffe1bb, keyI: 1.3, fogNear: 14, fogFar: 78 }
+    palette: { fog: 0x111a2c, ambient: 0x5a6480, key: 0xffe1bb, keyI: 1.9, fogNear: 14, fogFar: 78 }
   },
   {
     id: 'informacion',
@@ -85,7 +85,7 @@ export const SECTIONS = [
     z: -545,
     room: 'info',
     cam: { pos: [0, 1.7, -536], target: [0, 1.75, -554] },
-    palette: { fog: 0x081420, ambient: 0x2e4a5c, key: 0xa8e6f0, keyI: 1.25, fogNear: 14, fogFar: 76 }
+    palette: { fog: 0x0d1b28, ambient: 0x486878, key: 0xa8e6f0, keyI: 1.8, fogNear: 14, fogFar: 76 }
   },
   {
     id: 'licencia',

@@ -73,12 +73,19 @@ export function build({ env, quality, section }) {
         new THREE.PlaneGeometry(2.4, 1.7),
         new THREE.MeshStandardMaterial({
           map: paperTex, roughness: 0.9, metalness: 0, envMap: env,
-          transparent: true, opacity: 0.22
+          transparent: true, opacity: 0.34
         })
       );
       blank.position.set(side * (4.8 + (i % 3) * 1.2), 2.1 + ((i * 5) % 4) * 0.8, section.z + 10 - i * 2.6);
       blank.rotation.y = -side * 0.42;
       blank.rotation.z = (Math.random() - 0.5) * 0.12;
+      // También cuelgan de un hilo: el espacio está preparado, no vacío.
+      const th = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.005, 0.005, 6.8 - blank.position.y, 4),
+        new THREE.MeshBasicMaterial({ color: 0xffdcb4, transparent: true, opacity: 0.18 })
+      );
+      th.position.set(blank.position.x, blank.position.y + (6.8 - blank.position.y) / 2 + 0.9, blank.position.z);
+      g.add(th);
       g.add(blank);
       cards.push({ card: blank, base: blank.position.clone(), baseRot: blank.rotation.clone(), hover: 0, i });
     }
@@ -96,6 +103,10 @@ export function build({ env, quality, section }) {
   const frame = doorFrame(9, 3.4, 0xffdcb4, 0.45);
   frame.position.set(0, 1.4, section.z - 16.5);
   g.add(frame);
+
+  const warm = new THREE.PointLight(0xffd2a0, 24, 26, 2);
+  warm.position.set(0, 5, section.z - 4);
+  g.add(warm);
 
   const motes = dust(Math.round(160 * quality.particles), 20, 6.5, 0xffe0bc);
   motes.position.z = section.z;

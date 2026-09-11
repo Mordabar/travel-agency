@@ -30,13 +30,13 @@ export function build({ env, quality, section }) {
     const side = i % 2 === 0 ? -1 : 1;
     const tex = screen(item.q, item.a);
     const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(4.3, 2.5),
-      new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.95, toneMapped: false })
+      new THREE.PlaneGeometry(3.3, 1.92),
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.62, toneMapped: false })
     );
-    mesh.position.set(side * 5.1, 2.6 + (i % 2) * 0.9, section.z + 9 - i * 5.2);
-    mesh.rotation.y = -side * 0.5;
+    mesh.position.set(side * 7.6, 2.7 + (i % 2) * 1.1, section.z + 11 - i * 6.4);
+    mesh.rotation.y = -side * 0.78;
 
-    const hit = new THREE.Mesh(new THREE.PlaneGeometry(4.5, 2.7), new THREE.MeshBasicMaterial({ visible: false }));
+    const hit = new THREE.Mesh(new THREE.PlaneGeometry(3.5, 2.1), new THREE.MeshBasicMaterial({ visible: false }));
     hit.position.z = 0.04;
     hit.userData.interactive = {
       id: `info-${i}`,
@@ -59,6 +59,10 @@ export function build({ env, quality, section }) {
   tm.position.set(0, 5.2, section.z - 15.4);
   g.add(tm);
 
+  const cool = new THREE.PointLight(0xa8e4f4, 22, 26, 2);
+  cool.position.set(0, 4.8, section.z - 2);
+  g.add(cool);
+
   const motes = dust(Math.round(140 * quality.particles), 18, 6, 0xa8e4f4);
   motes.position.z = section.z;
   g.add(motes);
@@ -73,7 +77,7 @@ export function build({ env, quality, section }) {
         p.hover += ((isHover ? 1 : 0) - p.hover) * 0.12;
         p.mesh.position.y = p.base.y + Math.sin(elapsed * 0.5 + p.i) * 0.05;
         p.mesh.rotation.y = p.baseRot.y - mouse.x * 0.06 * focus;
-        p.mesh.material.opacity = 0.8 + p.hover * 0.2;
+        p.mesh.material.opacity = 0.55 + p.hover * 0.4;
         p.mesh.scale.setScalar(1 + p.hover * 0.05);
       });
       motes.userData.drift(elapsed);
